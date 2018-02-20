@@ -10,8 +10,8 @@ FULL_NEW_PATH="/var/www/html/"$NEW_PATH
 echo "Data collated - time to work magic"
 
 MYSQL_NEW_PW=`dd if=/dev/urandom bs=1 count=32 2>/dev/null | base64 -w 0 | rev | cut -b 2- | rev`
-MYSQL_NEW_USER=`/dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
-MYSQL_NEW_DB=`/dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
+MYSQL_NEW_USER=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
+MYSQL_NEW_DB=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
 
 mysql -u root -p$MYSQL_ROOT_PW -e "CREATE USER '$MYSQL_NEW_USER'@'localhost' IDENTIFIED BY '$MYSQL_NEW_PW';"
 mysql -u root -p$MYSQL_ROOT_PW -e "CREATE DATABASE $MYSQL_NEW_DB DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;"
