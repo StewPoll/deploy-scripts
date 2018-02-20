@@ -1,0 +1,38 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    root {path};
+    index index.php index.html index.htm index.nginx-debian.html;
+
+    server_name {domains};
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    client_max_body_size 55m;
+
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt { log_not_found off; access_log off; allow all; }
+    location ~* \.(css|gif|ico|jpeg|jpg|js|png)$ {
+        expires max;
+        log_not_found off;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    # add_header X-Frame-Options SAMEORIGIN;
+    # add_header X-Content-Type-Options nosniff;
+    # add_header X-XSS-Protection "1; mode=block";
+    # add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";
+    # add_header Content-Security-Policy "upgrade-insecure-requests";
+    # add_header Referrer-Policy "no-referrer-when-downgrade";
+}

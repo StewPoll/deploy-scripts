@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StewPolley Scripts</title>
+</head>
+<body>
+<p>Before running these scripts, please ensure the following:</p>
+<ul>
+    <li>You have SSH access to your Ubuntu 16.04 server</li>
+    <li>Your User on the server is sudo non root</li>
+    <li>You have opened port 80</li>
+    <li>You have opened port 443</li>
+</ul>
+<p><strong>Install LEMP Stack</strong></p>
+This script installs a LEMP Stack, ready to deply wordpress sites with later on. From testing, this script works wonderufll
+<pre>curl https://scripts.stewpolley.com/lemp-setup.sh | sh</pre>
+Please make sure to save the root MYSQL password somewhere secure when finished!
+<p><strong>Install Wordpress</strong></p>
+<p>This script will ask you for the following - please have these ready first!</p>
+<p><strong>WARNING:</strong> This Script is under-development still - please note it isn't fully functional.</p>
+<ul>
+    <li>MYSQL Root Password (from lemp stack installation)</li>
+    <li>New username for the wordpress install</li>
+    <li>New DB name for the wordpress install</li>
+    <li>Domains for the new wordpress install</li>
+    <li>Directory under <code>/var/www/html/</code> you would like wordpress installed</li>
+    <li>The name of the new site, for NGINX</li>
+</ul>
+<p>The final step in this script is installing a Let's Encrypt Certificate. This will require user interaction</p>
+<pre>curl https://scripts.stewpolley.com/install-wordpress.sh >> install-wordpress.sh && sh install-wordpress.sh</pre>
+<h2>Source Code</h2>
+<p>To view the source code, please head over to my <a href="https://github.com/StewPoll/deploy-scripts">Github Repo</a>.</p>
+<h2>Thanks for these tools, I'd love to buy you a beer as thanks!</h2>
+<p>Sure thing! <a href="https://stewpolley.com/contact/">Contact me</a> and I'll find a way to get that beer money!<br>
+I'll probably put it towards cookies though...</p>
+</body>
+</html>
