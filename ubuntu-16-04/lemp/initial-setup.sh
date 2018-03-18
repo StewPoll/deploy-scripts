@@ -40,7 +40,7 @@ echo "MySQL setup completed"
 
 # Install PHP
 sudo apt-get install php-fpm php-mysql -y
-curl https://scripts.stewpolley.com/fix_php_config.py >> fix_php_config.py
+curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/fix_php_config.py >> fix_php_config.py
 sudo python3.6 fix_php_config.py
 rm fix_php_config.py
 

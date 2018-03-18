@@ -20,8 +20,8 @@ mysql -u root -p$MYSQL_ROOT_PW -e "FLUSH PRIVILEGES;"
 
 echo "MYSQL Profile Created"
 echo "Updating NGINX"
-curl https://scripts.stewpolley.com/new_nginx.py >> new_nginx.py
-curl https://scripts.stewpolley.com/default_nginx >> default_nginx
+curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/new_nginx.py >> new_nginx.py
+curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/default_nginx >> default_nginx
 python3.6 new_nginx.py $FULL_NEW_PATH $NEW_PATH $DOMAINS
 
 sudo cp $NEW_PATH /etc/nginx/sites-available/$NEW_PATH
@@ -44,7 +44,7 @@ sudo chmod g+w $FULL_NEW_PATH/wp-content
 sudo chmod -R g+w $FULL_NEW_PATH/wp-content/themes
 sudo chmod -R g+w $FULL_NEW_PATH/wp-content/plugins
 
-curl https://scripts.stewpolley.com/fix_wordpress.py >> fix_wordpress.py
+curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/fix_wordpress.py >> fix_wordpress.py
 sudo python3.6 fix_wordpress.py $MYSQL_NEW_DB $MYSQL_NEW_USER $MYSQL_NEW_PW $FULL_NEW_PATH
 sudo rm fix_wordpress.py
 
@@ -53,7 +53,7 @@ sudo chown -R www-data $FULL_NEW_PATH
 
 sudo certbot --nginx
 
-curl https://scripts.stewpolley.com/activate-security-headers.py >> activate-security-headers.py
+curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/activate-security-headers.py >> activate-security-headers.py
 sudo python3.6 activate-security-headers.py $NEW_PATH
 rm activate-security-headers.py
 sudo systemctl restart nginx

@@ -12,11 +12,29 @@
     <li>You have opened port 80</li>
     <li>You have opened port 443</li>
 </ul>
-<p><strong>Install LEMP Stack</strong></p>
-This script installs a LEMP Stack, ready to deply wordpress sites with later on. From testing, this script works wonderufll
-<pre>curl https://scripts.stewpolley.com/lemp-setup.sh | sh</pre>
+<h2>Contents</h2>
+<ul>
+    <li>
+        <a href="#ubuntu-16-04">Ubuntu 16.04 Scripts</a>
+        <ul>
+            <li>
+                <a href="#ubuntu-16-04-lemp">Lemp Stack</a>
+                <ul>
+                    <li><a href="#ubuntu-16-04-lemp-initial">Initial Setup</a></li>
+                    <li><a href="#ubuntu-16-04-lemp-wordpress">Wordpress Installation</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<h2 id="ubuntu-16-04">Ubuntu 16.04</h2>
+<h3 id="ubuntu-16-04-lemp">Lemp Stack</h3>
+<h4 id="ubuntu-16-04-lemp-initial">Install LEMP Stack</h4>
+This script installs a LEMP Stack, ready to deply wordpress sites with later on.
+<pre>curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/initial-setup.sh | sh</pre>
 Please make sure to save the root MYSQL password somewhere secure when finished!
-<p><strong>Install Wordpress</strong></p>
+<h4 id="ubuntu-16-04-lemp-wordpress">Install Wordpress</h4>
 <p>This script will ask you for the following - please have these ready first!</p>
 <ul>
     <li>MYSQL Root Password (from lemp stack installation)</li>
@@ -24,7 +42,7 @@ Please make sure to save the root MYSQL password somewhere secure when finished!
     <li>Directory under <code>/var/www/html/</code> you would like wordpress installed</li>
 </ul>
 <p>The final step in this script is installing a Let's Encrypt Certificate. This will require user interaction</p>
-<pre>curl https://scripts.stewpolley.com/install-wordpress.sh >> install-wordpress.sh && sh install-wordpress.sh</pre>
+<pre>curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/install-wordpress.sh >> install-wordpress.sh && sh install-wordpress.sh</pre>
 <h2>Source Code</h2>
 <p>To view the source code, please head over to my <a href="https://github.com/StewPoll/deploy-scripts">Github Repo</a>.</p>
 <h2>Thanks for these tools, I'd love to buy you a beer as thanks!</h2>
