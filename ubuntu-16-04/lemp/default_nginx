@@ -1,7 +1,7 @@
 server {
     listen 80;
 
-    root {path};
+    root {root_path};
     index index.php index.html index.htm index.nginx-debian.html;
 
     server_name {domains};
@@ -27,6 +27,10 @@ server {
     location ~ /\.ht {
         deny all;
     }
+
+    # Logs
+    error_log {log_path}/error.log warn;
+    access_log {log_path}/access.log;
 
     # add_header X-Frame-Options SAMEORIGIN;
     # add_header X-Content-Type-Options nosniff;

@@ -13,8 +13,9 @@ if __name__ == '__main__':
         for line in reader:
             config += line
 
-    # As NGINX has the { } config setup inside it, it messes with the ability to do .format and this makes me said...
-    config = config.replace('{path}', args[0])
+    # As NGINX has the { } config setup inside it, it messes with the ability to do .format and this makes me sad...
+    config = config.replace('{root_path}', args[0])
+    config = config.replace('{log_path}', '/var/log/' + site_name)
     config = config.replace('{domains}', domains)
 
     with open(site_name, 'w') as new_file:
