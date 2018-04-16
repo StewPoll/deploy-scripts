@@ -24,6 +24,8 @@ curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/new_nginx.py >> new_nginx.
 curl https://scripts.stewpolley.com/ubuntu-16-04/lemp/default_nginx >> default_nginx
 python3.6 new_nginx.py $FULL_NEW_PATH $NEW_PATH $DOMAINS
 
+# NGINX Config
+sudo mkdir /var/log/$NEW_PATH
 sudo cp $NEW_PATH /etc/nginx/sites-available/$NEW_PATH
 sudo ln -s /etc/nginx/sites-available/$NEW_PATH /etc/nginx/sites-enabled/$NEW_PATH
 sudo systemctl restart nginx
