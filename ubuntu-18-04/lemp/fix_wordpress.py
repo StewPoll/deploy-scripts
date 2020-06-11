@@ -19,9 +19,18 @@ if __name__ == '__main__':
             config += line
 
     # Replace config data with correct table, username and password
-    config = config.replace("define('DB_NAME', 'database_name_here');", f"define('DB_NAME', '{db_name}');")
-    config = config.replace("define('DB_USER', 'username_here');", f"define('DB_USER', '{mysql_user}');")
-    config = config.replace("define('DB_PASSWORD', 'password_here');", f"define('DB_PASSWORD', '{mysql_pw}');\n\ndefine('FS_METHOD', 'direct');")
+    config = config.replace(
+        "define('DB_NAME', 'database_name_here');",
+        f"define('DB_NAME', '{db_name}');"
+    )
+    config = config.replace(
+        "define('DB_USER', 'username_here');",
+        f"define('DB_USER', '{mysql_user}');"
+    )
+    config = config.replace(
+        "define('DB_PASSWORD', 'password_here');",
+        f"define('DB_PASSWORD', '{mysql_pw}');\n\ndefine('FS_METHOD', 'direct');"
+    )
 
     new_salts_data = urllib.request.urlopen('https://api.wordpress.org/secret-key/1.1/salt/')
     new_salts = []
