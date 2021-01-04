@@ -37,9 +37,9 @@ if __name__ == '__main__':
     for line in new_salts_data.readlines():
         new_salts.append(line.decode().strip())
 
-
-    # This section I've done in a bit of an odd way. Intentionally not referencing the keys actually returned by WP to
-    # ensure that it's compatible with any changes they make in the future.(IE, removing a setting, adding more settings)
+    """
+    Instead of trying to find each salt, made this more general to ensure that it always finds all slats.
+    """
     salts = {}
 
     for line in new_salts:
@@ -54,12 +54,9 @@ if __name__ == '__main__':
 
     for key, option in salts.items():
         value = option['value']
-        config_lines[option['line']] = f"define('{key}', '{value}');"
+        config_lines[option['line']] = "define('{key}', '{value}');"
+
 
     with open(config_file, 'w') as new_file:
-        print('\n'.join(config_lines), file=new_file)
-
-
-
-
-
+        new_config = '\n'.join(config_lines)
+        new_file.writelines(new_config)

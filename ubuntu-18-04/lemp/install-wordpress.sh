@@ -47,7 +47,7 @@ sudo chmod -R g+w $FULL_NEW_PATH/wp-content/themes
 sudo chmod -R g+w $FULL_NEW_PATH/wp-content/plugins
 
 curl https://scripts.stewpolley.com/ubuntu-18-04/lemp/fix_wordpress.py >> fix_wordpress.py
-sudo python fix_wordpress.py $MYSQL_NEW_DB $MYSQL_NEW_USER $MYSQL_NEW_PW $FULL_NEW_PATH
+sudo python3 fix_wordpress.py $MYSQL_NEW_DB $MYSQL_NEW_USER $MYSQL_NEW_PW $FULL_NEW_PATH
 sudo rm fix_wordpress.py
 
 sudo chown -R www-data $FULL_NEW_PATH
